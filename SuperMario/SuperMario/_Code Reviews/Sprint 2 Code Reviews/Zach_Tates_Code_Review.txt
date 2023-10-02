@@ -1,0 +1,15 @@
+Author of the code review: Zach Tates
+Date of the code review: 10/11/2022
+Sprint number: 2
+Name of the .cs file being reviewed: BrickBlockCollision.cs
+Author of the .cs file being reviewed: Yixuan
+Specific comments on code quality: Overall could be better, however, the collision works and had strict time constraints which could explain the innacuracies.
+
+Number of minutes taken to complete the review: 10 minutes
+
+A hypothetical change to make to the game related to file being reviewed and how the current implementation could or could not easily support that change:
+Something that I would change to the current file would be to refactor the code to reduce the cyclomatic complexity.
+As it currently is the cyclomatic complexity is very high as there is a very large if tree deciding what collisions to execute related to the block.
+As such, if we were to use a switch case, we could reduce the cyclomatic complexity to a lower degree.
+Along with this the collisions for mario and block could be placed in seperate files to create higher cohesion.
+Overall while this file could be written better the overall coding practices utilized are great and allow for a user to understand the code given to them.

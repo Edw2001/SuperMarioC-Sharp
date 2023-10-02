@@ -1,0 +1,11 @@
+﻿Author of the code review: Yixuan Huang
+Date of the code review: 10/11/2022
+Sprint number: 2
+Name of the .cs file being reviewed: ICollideable.cs
+Author of the .cs file being reviewed: Phillip
+Specific comments on code quality: Overall not bad, the code can be improved and more efficient; however, it works right now.
+
+Number of minutes taken to complete the review: 20 minutes
+
+I think there are too much constructors and I suggest that you can refactor the form in order to shrink the code lines. Besides, You really forget to add the ITEM enum so that when Mario collide with 
+power up mushroom or fire flower, there is a correct enum which can represent these collision. Besides,there are two Draw function which really makes me feel confuse before you explain to us.

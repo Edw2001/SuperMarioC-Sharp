@@ -1,0 +1,10 @@
+Author of the code review: Zhongyao Wang
+Date of the code review: 10/25/2022
+Sprint number: 3
+Name of the .cs file being reviewed: BackGroundSpriteFactory.cs
+Author of the .cs file being reviewed: Zhongyao
+Specific comments on code quality: It's a crucial spritefactory that's required to exist since it contains all of the sprites for background, which will be further used as different moving speed to generate the feelings of parallax. Just as other sprite factory method, it contains loadcontent and create specific background's method, which is quite useful since it's a "factory". Also, it contains the singleton as it could be used worldwide. Something must need to improve for all of the backgrounds for next sprint or maybe in refactorng stage. We should add a layer class to store all of the backgrounds instead of all added them inside Game1.cs. Codes get a little bit smell here. Also, it also should probably be added into a background spritelist inside draw method, since currently, we are just using get factory again inside spritebatch to generate effect of parallax. A new file for layer should be created to store all of the background sprites inside bachground sprite factory class. Lastly, I am not sure yet how we can implement sounds effects with different background. This spritefactory should add more method for that in future. So still many relevant things needs to be refactored or added for this class.
+
+Number of minutes taken to complete the review: 15 minutes
+
+- Zhongyao Wang

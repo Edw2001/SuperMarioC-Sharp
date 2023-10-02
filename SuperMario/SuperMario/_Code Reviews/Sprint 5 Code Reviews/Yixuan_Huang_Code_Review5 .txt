@@ -1,0 +1,21 @@
+Author of the code review: Yixuan Huang
+Date of the code review: 11/29/2022
+Sprint number: 5
+Name of the .cs file being reviewed: BombExplosion.cs
+Author of the .cs file being reviewed: Zhongyao
+Specific comments on code quality: 
+
+This program file contains many different code smells. From line 17 to line 29, the code has feature envy set up.It is good! 
+Then, the update function upto line 40 do the update and it seems that wehn the spritesheet moves to the third frame, the bomb will explose. It is smart to
+use spritesheet frame as a fake "timer" instead of using the real timer to set the time. The overall code smells are not bad; however, there are some problems 
+when I do the code review, or there maybe some improvement which can be applied in BombExplosion.cs.
+
+
+Number of minutes taken to complete the review: 5 minutes
+In the update method, you just put the tool(bomb) into the collision manager and do the rest update. However, it seems that some properties can be just updated
+in this method. It does not really need to do everything in other place. I think it weill make the code much easierto understand.
+
+Furthermore, the bomb explosion seems have a larger collision bounding box, I think in current file, the bomb explosion bounding box is the same as the spritesheet bounding box size,
+so the refactor or improvement need to be done. 
+
+Also, currently, the bomb will explose and break everything in the explosion area. However, I think the ground should not be crashed by bomb. This is another problem that need to be fixed.

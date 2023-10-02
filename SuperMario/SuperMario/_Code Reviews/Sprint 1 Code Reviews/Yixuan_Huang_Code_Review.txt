@@ -1,0 +1,11 @@
+Author of the code review: Yixuan Huang
+Date of the code review: 9/27/2022
+Sprint number: 1
+Name of the .cs file being reviewed: Mario.cs
+Author of the .cs file being reviewed: Zach
+Specific comments on code quality: Overall excellent, but can be improved in order to write less repeat code
+
+Number of minutes taken to complete the review: 15 minutes
+
+Since Mario is a moving and animated sprite, this class can inherit spriteMA instead of implementing the interface directly.
+By doing that, mos tof the code can be deleted and the Mario.cs will be more effective. Mario.cs only need to add some extra class.

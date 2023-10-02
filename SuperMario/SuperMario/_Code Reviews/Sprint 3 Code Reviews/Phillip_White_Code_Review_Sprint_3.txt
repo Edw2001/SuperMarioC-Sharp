@@ -1,0 +1,27 @@
+﻿Author of the code review: Phillip White
+Date of the code review: 10/24/2022
+Sprint number: 3
+Name of the .cs file being reviewed: CollisionManager.cs (MK II)
+Author of the .cs file being reviewed: Phillip
+Specific comments on code quality: 
+
+Number of minutes taken to complete the review: 20 minutes
+
+The collision manager has now morphed and taken on a number of different issues that manifested as additional moving entities have been added into our level.
+This had lead to a number of issues, such as items not being drawn, but still being collided with, items not properly being dereged from the collision manager
+and bounding box drawings being handled improperly. The first fix that I would propose to this code would be to create two update methods, one that passes
+in a spritebatch for drawing the debug boxes, and one that does not. This would reduce the overall code coupling as the ICollideables would now no longer need
+to peer into game for the DEBUG flag, but it would also ensure that *ALL* bounding boxes would be drawn including those that are not currently being rendered.
+The next major archetectural change would be to change how ICollideables move universally. This would allow us to ensure that all entities follow the steps for
+proper movement, which is deregistering them from collisions, applying the physics, and then re-registering them in their new location. This prevents "Ghost" 
+entities from forming where an entity is removed from the sprite batch, but is left in the collider matrix, which causes collisions that have no discerable reasoning
+for happening. Finally I would like to change how block structures such as the ground react, and potentially give them one large overarching bounding box, rather than
+a series of small bounding boxes. Currently by having a high enough movement speed, we can avoid any issues, but its still not ideal.
+
+I know I said finally before, but I also think that the physics engine and the collision manager should be merged, or at least working together, as this would allow
+for a more comprehesive "model" for our MVC system. This would also allow us to do sweeping bounding box calculations, and checking if an entity is "Grounded", which
+is currently accomplished by repeatedly applying gravity and checking to see if there is a bottom collision. This sometimes reads as a false positive for a side collision
+and creates un-intended consiquences. I could continue, however, there are still many issues with the collision manager that I do not yet see. So I will leave this for now.
+
+
+ - Phil

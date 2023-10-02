@@ -1,0 +1,14 @@
+Author of the code review: Yixuan Huang
+Date of the code review: 10/25/2022
+Sprint number: 3
+Name of the .cs file being reviewed: IItemState.cs
+Author of the .cs file being reviewed: phil
+Specific comments on code quality: The code overall is well-formed, the code smell is not bad. The code is efficient.
+
+Number of minutes taken to complete the review: 10 minutes
+
+The IItemState class has now set three response after the collsision with question block: Emerging, Idle, and Collecting. The only suggestion is that it would be 
+better to write item state specific item, for example, CoinState, MushroomState, and StarState. This will provide a much clearer view for other programmers. Besides,
+Writing the item state spereately will also benefit for flexiblity. 
+
+- Yixuan Huang

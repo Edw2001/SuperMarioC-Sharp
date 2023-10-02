@@ -1,0 +1,20 @@
+﻿Author of the code review: Phillip White
+Date of the code review: 10/11/2022
+Sprint number: 2
+Name of the .cs file being reviewed: CollisionManager.cs
+Author of the .cs file being reviewed: Phillip, Zhongyao
+Specific comments on code quality: Overall not bad, the code is not the most efficient that it could be, however, it does work, and it was written under strict time constraints
+
+Number of minutes taken to complete the review: 20 minutes
+
+A hypothetical change to make to the game related to file being reviewed and how the current implementation could or could not easily support that change:
+The first change that I would consider making to this code file would be to change the calculations on what is "Close" to the moving object. Currently, it considers every box that is around the
+moving entity, however, this is not the most efficient algorithm that we could have chosen. For example, if the entity is moving forward, we dont need to consider a previous gridspace as 
+its impossible for the entity to hit something behind it, UNLESS IT IS ON A GRIDSPACE LINE, in which case it should be required to check behind us. I'm sure that there is a better way to
+do this calculation, because we know the width of the bounding box and the X and Y position, we should be able to do something smarter.
+The second change I would make to this code would be how the walkback is implemented and the calculation of direction. Currently those are calculated in two different methods, they definitly can
+be done in the same method, but they aren't. Also, the walkback could probably be done in a more natural way, but for now this is fine. *everything's fine* ;-;
+Finally I would like to have some for of maybe auto reg/dereg system? I don't really know how I would be able to do this, and I know it would be slower, however, if the collisionManager could
+keep track of what is moving and what isn't, that would be super nice. (Maybe some form of moving type that could be encoded?)
+
+ - Phil

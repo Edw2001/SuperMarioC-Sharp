@@ -1,0 +1,12 @@
+Author of the code review: Yifei Zhuang
+Date of the code review: 9/27/2022
+Sprint number: 1
+Name of the .cs file being reviewed: Game1.cs
+Author of the .cs file being reviewed: All
+Specific comments on code quality: 
+For the update binding part, I think we can use enums to represent all the power up states as well as the action state. Rather than numbers, text would represent the states better. 
+
+Number of minutes taken to complete the review: 13
+
+A hypothetical change to make to the game related to file being reviewed and how the current implementation could or could not easily support that change:
+I think we should have a model to keep track of the number of sprite instead of a list of sprite.

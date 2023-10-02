@@ -1,0 +1,16 @@
+Author of the code review: Zach Tates
+Date of the code review: 9/27/2022
+Sprint number: 1
+Name of the .cs file being reviewed:Game1.cs
+Specific comments on code quality: The quality of the code was overall well written with a
+few unnecessary declarations that could have been solved through inheretence with seperate
+classes. For example, the way that ICommand is implemented is realatively confusing to users
+when it could have been implemented in a way that can be used by any user.
+
+Number of minutes taken to complete the review:10
+A hypothetical change to make the code better: A change that could make the code better would
+to change the way that commands are implemented by putting them into a dictionary or implementing
+them with a class that stores all command implementations.
+
+
+

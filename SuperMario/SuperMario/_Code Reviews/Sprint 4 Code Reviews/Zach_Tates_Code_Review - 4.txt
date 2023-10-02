@@ -1,0 +1,17 @@
+Author of the code review: Zach Tates
+Date of the code review: 11/8/2022
+Sprint number: 4
+Name of the .cs file being reviewed: SoundEffectPlayer.cs
+Author of the .cs file being reviewed: Zach
+Specific comments on code quality: The code quality is average. Specifically the code does well in following C# naming conventions. The code also has low Coupling due to
+the delagate system allowing for less reliance on other classes. The code does poorly in Cohesion as while the delagate system allows for good Coupling it has low Cohesion
+as the Event System can be hard to understand and follow. The code also does well in cyclomatic complexity. This is mainly due to the lack of switch and if statements solved by
+the delagate system. 
+
+Number of minutes taken to complete the review: 10 minutes
+
+A hypothetical change to make to the game related to file being reviewed and how the current implementation could or could not easily support that change:
+Something that I would change to the current file would be to refactor the Event System. Currently the event system cannot support high numbers of sound effects due to the
+limitations of the sound effect class. In order to remidy this I would change the Event System to track the total number of sounds being played in memory. That way if an exception is thrown,
+the system will simply not play the given sound effect until the memory is clear. This in theory should allow for the code to run more smoothly which will help the team and game as a whole in the long run.
+While doing this may require an increase in cyclomatic complexity, I think it is waranted given the alternatives.

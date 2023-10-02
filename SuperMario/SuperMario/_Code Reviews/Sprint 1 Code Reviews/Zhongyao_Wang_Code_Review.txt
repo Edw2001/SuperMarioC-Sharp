@@ -1,0 +1,14 @@
+Author of the code review: Zhongyao Wang
+Date of the code review: 9/27/2022
+Sprint number: 1
+Name of the .cs file being reviewed: ItemSpriteFactory
+Author of the .cs file being reviewed: Yixuan
+Specific comments on code quality: Overrall quality is good, I will rate 9/10
+
+Number of minutes taken to complete the review: 15 minutes
+
+A spritefactory class helps a lot for simplizing the all assorted sprite files. And also it contains more cohesive relationships between different concrete classes. However, a quite obvious 
+question is that there are many variables and method. The overall quality could be much better if some of the method and variables could be combined.
+Still, the overall logics are great, and it make life easier to write the monogame. Lastly, I would hope that in future, there could be more methods and related correlations added into the 
+sprite factory. The reason is that there're not that much really useful method yet.
+.

@@ -1,0 +1,33 @@
+﻿Author of the code review: Phillip White
+Date of the code review: 11/8/2022
+Sprint number: 4
+Name of the .cs file being reviewed: CollisionManager.cs (MK III)
+Author of the .cs file being reviewed: Phillip
+Specific comments on code quality: Working with this code on a daily basis has slowly been driving me insane, and I also really want to sit down and change it
+however... I do not have the time to do so
+
+Number of minutes taken to complete the review: 20 minutes
+
+	The collision manager now has upwards of 20 different CTypes involved, although this isn't an issue in itself, I am beginning to see the value of bitmasking to create groupings
+of like collision responses. For example, all enemies and blocks halt Mario's movement when he walks in front of them. This could be a flag that is set such as 0x00000001
+which could be anded to a mask to verify the correct response. Further categories include entities that can provide a "bounce" when mario lands on them, entities that should not
+have a collision walkback applied to them by the collision manager, and other collision classes. The collision direction calculations are still inaccurate along with the walkback
+calculators as well, both of these could be improved, however, I cannot seem to find an algorithm that properly does this, accurately.
+
+	The collision manager also should have direction specific options that are also bitmaskable, albeit smaller. for example 0x10 for a Y collision and 0x01 for a collision in a
+positive direction, this would allow a much quicker processing of collision directions, and also easier invertibility. As an extension of this, I am starting to see the value
+of the quadtree method of thinking, as there is no such issue as "out-of-bounds" errors that have plagued the development, it would also prevent the requirement that we only check
+registered "moving" objects, as a quadtree can check all entities within it in O(n) time, which is a great improvement over our current O(m) time with a large constant multiplier.
+
+	Another issue that quadtrees would allow us to avoid, is the issue of having set boundaries for our collision manager, this increases the coupling between it and the Game class,
+which keeps track of the level size, and the level loader, which is responsible for accurately posing the level size to the Game class. This is just a bad system from a code reusability
+standpoint, however, I don't think there is ever an instance where you will need only a loader, or only a collision manager, or only a game, so it’s not bothering me too much now.
+
+	The final issue is with the KExtended Bounding boxes, which currently are causing our walkback generation algorithm to have an issue with diagonally moving entities over stairs.
+This could be solved in a number of ways, my personal favorite being slicing up the velocity into set step sizes, and walking them through each set of mini hops every timestep.
+Although this method is slower than just executing the move in one run, it would be more accurate, and allow for smaller walkbacks, and more swift responses.
+
+
+
+
+ - Phil

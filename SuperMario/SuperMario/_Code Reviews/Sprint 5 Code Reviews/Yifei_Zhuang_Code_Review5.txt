@@ -1,0 +1,16 @@
+﻿Author of the code review: Yifei Zhuang
+Date of the code review: 11/29/2022
+Sprint number: 5
+Name of the .cs file being reviewed: BombIdle.cs
+Author of the .cs file being reviewed: 
+Specific comments on code quality:
+
+The code has good cohesion. The code only consider the bomb. It uses the BombExplosion and also the collision to handle other functionalities. 
+One of the problem is there is a resetCount within the update which basically functions as a timer and relying on the update time then moving on the the bombExplotion.
+The code, however, is highly coupled. When looking at the tool.CollisionResponse.Add... part, there are multiply classes including Direction, CType, ect. These do depends on each other and also the collision response of the tool or the bomb could be move to a different file where all the collision is handeled.
+When looking at BombIdle and also the BombMoving within the Biu method, the BombIdle and the BombMoving are really similar. I think they can both inherite to a class and reduce the redundency. 
+
+
+Number of minutes taken to complete the review:  20 minutes
+
+Overall do all the functionality. There are many different class called within the method. Some on the code are repeated. 

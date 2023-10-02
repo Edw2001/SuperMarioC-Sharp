@@ -1,0 +1,14 @@
+Author of the code review: Zach Tates
+Date of the code review: 10/25/2022
+Sprint number: 3
+Name of the .cs file being reviewed: Enemy.cs
+Author of the .cs file being reviewed: Yixuan
+Specific comments on code quality: The structure of the code is very well done. The cyclomatic complexity and code smells are low as it has good coupling and cohesion.
+The Enemy class allows for enemy entities to have correct behavior and had strict time constraints which could explain the innacuracies.
+
+Number of minutes taken to complete the review: 10 minutes
+
+A hypothetical change to make to the game related to file being reviewed and how the current implementation could or could not easily support that change:
+A change that I would make would be to add the collision responses to a seperate class such that the Enemy class only has implementations for enemy behaviors.
+I would also get rid of the kill method and move it to a state design pattern such that the enemy can keep track of its own class and change its internal state depending on the
+given commands from the collision manager. Overall, a very well done class with just a couple of small refactoring nitpicks.

@@ -1,0 +1,33 @@
+Author of the code review: Zach Tates
+Date of the code review: 11/29/2022
+Sprint number: 5
+Name of the .cs file being reviewed: ArrowShooting.cs
+Author of the .cs file being reviewed: Zhongyao
+Specific comments on code quality: 
+	This program file contains many different code smells. For starters, the program has Feature envy at line 25 as it uses data from the Mario class in order to determine the direction
+	of the arrow based on the direction of Mario. Another smell in this program is that it can be difficult to understand and there is message chaining. At lines 36 through 51 there is lots of
+	message chaining as each line has so many methods inside of other methods inside of other parameters just to add a collision response to the tool object. 
+	
+	Along with this, the method is difficult to understand as it has temporal cohesion as it can be difficult to reuse as in order to add another collision response you have to potentially 
+	change the direction, collisiontype, and what I can only assume to be an integer to check if the collision happens. The method also has temporal cohesion as it is related by timing as
+	all the parts of the method execute at the same time when running.
+
+	This system is highly coupled, specifically the methods spanning lines 36 through 51 as each one has interconnections to 4 different components which are completely dependent on each other
+	in the context of assigning collision responses for the given tool being arrows.
+
+	The code also has a maintainability index of approximately 30. This is due to its moderate cyclomatic complexity and low cohesion in the collision response methods.  
+
+ 
+
+         
+Number of minutes taken to complete the review: 10 minutes
+
+A hypothetical change to make to the game related to file being reviewed and how the current implementation could or could not easily support that change:
+
+	One change that I would make to the game would be to change the way that the collision manager adds collision responses by having the collision manager check for all collision types
+	and pass that information to the class rather than the class add a ton of information to the collision manager. That way the cohesion will go up there won't be as many of the code smells
+	as there are listed above and the class will be much shorter allowing for better reusability if necessary.
+
+	This being said, the current implementation could not support this change as the system is so highly coupled that it would potentially break the systen if the collision manager would
+	change. With this the current file is also coupled with mario's class so mario's data would have to change as well which at this point in the code base could also potentially break the
+	system.

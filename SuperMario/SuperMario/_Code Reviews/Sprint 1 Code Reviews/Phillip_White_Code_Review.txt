@@ -1,0 +1,15 @@
+Author of the code review: Phillip White
+Date of the code review: 9/27/2022
+Sprint number: 1
+Name of the .cs file being reviewed: MarioSpriteFactory.cs
+Author of the .cs file being reviewed: Zach
+Specific comments on code quality: Overall good, however, a few too many single use if cases that could be combined into one.
+
+Number of minutes taken to complete the review: 15 minutes
+
+A hypothetical change to make to the game related to file being reviewed and how the current implementation could or could not easily support that change:
+In theory, the powerup and action portions of the state could be hashed together to create a composite code
+for example, takeing the action and multiplying by 6 and adding the powerup. This hash function could be easily undone, and also allows less
+data to be passed around. The order of the states could also be changed to allow for easier state changes.
+There also could be a combination of the swapSheetSize, swapSprite, swapFrameSize into one method which would allow for less complicated
+state transfer logic. The final change that could be made would be placing the content textures in the an array which could be accessed by said hash mapping to make the swap sprite method simpler.

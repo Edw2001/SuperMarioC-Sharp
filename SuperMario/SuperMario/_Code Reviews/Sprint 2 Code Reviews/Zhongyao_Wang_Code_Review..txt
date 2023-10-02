@@ -1,0 +1,18 @@
+Author of the code review: Zhongyao Wang
+Date of the code review: 10/11/2022
+Sprint number: 2
+Name of the .cs file being reviewed: Icollideable.cs
+Author of the .cs file being reviewed: Philip
+Specific comments on code quality: Overall pretty good, clear enums for Direction and Ctype. Just the structures for Icollideables are lil bit vague. 
+
+Number of minutes taken to complete the review: 20 minutes
+
+I was quite familiar with this part since I did a lot of parts deal with collisions. The logics and pattern inside this file are deliberate. However, I find difficult to classify
+from different structure of Icollideables. There are 5 different kinds of ICollideable structures, and two are not referenced yet(probably will be used in future). Still, I
+think it would be better if he could comment what strcuture of ICollideable belonged to which type of object. Also, I hold some different point of views with his 
+CollisionResponse tuples. I consider that this pattern may be a little bit complicated while there're hundreds of different responses. What I did when I was making 
+Collision Commands, I made it to something like Dictionary<Ctype, Dictionary<Dirrection, ICommands>>. The reason was that in this pattern, we could easily 
+classify all kinds of collision responses by Ctype. And that would be something more clean while dealing with hundreds of different commands I consider. However,
+since all of the other pattern are based on tuples, we keep that and also, the dictionary pattern has not been tested working. Therefore, that's just a small idea of me.
+All in all, this whole class is our most important class in our project so far, it has hundreds of different references. Philip did such a great job on cohesion and coupling
+stuff of this class. 

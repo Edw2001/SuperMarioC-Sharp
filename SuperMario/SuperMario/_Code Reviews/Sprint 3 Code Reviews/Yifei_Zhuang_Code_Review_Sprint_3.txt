@@ -1,0 +1,11 @@
+Author of the code review: Yifei Zhuang
+Date of the code review: 10/25/2022
+Sprint number: 3
+Name of the .cs file being reviewed: ICollideable.cs
+Author of the .cs file being reviewed: Phil
+Specific comments on code quality: It could be better when more clean up is made and also have simpler with less redundency with definitly more comments.
+
+Number of minutes taken to complete the review: 12 minutes
+
+There are quite a bit different methods that were not ever referenced. Some of the duplicated methods that has different parameter passes in can be combined to a same one, for example, the Rectangle nBBox can just not be passed in and use and use the next one which is "new Rectangle((int)(nPos.X - nSprite.Width), (int)(nPos.Y - nSprite.Height), (int)(nSprite.Width), (int)(nSprite.Height))" to achieve the same functionality. 
+The collision response has in the form of list<tuple<...>> which i think there might be a more easier way to do. Some of other ones involves collision manager which has for example the DeRegEntity and the regEntity is used whenever update the uncollidible items which is a little bit reduntant. 

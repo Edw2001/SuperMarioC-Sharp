@@ -1,0 +1,33 @@
+﻿Zhongyao Wang Code Review 
+
+File Name: MarioInventoryState.c
+Time used: 40 minutes
+
+Author: Phil
+
+In terms of length, as a parent class for all of the inventories items, a total length about 100 is pretty good in my point of view. 
+
+The codes are doing good in the following aspects:
+
+1, really clear enums listed, which is pretty easy to classify what inventory/state has been implemented in other classes. 
+
+2, it’s a clear type of polymorphism. In case an obvious provision of a single symbol to represent multiple different specific types. 
+
+3, the coupling structure for this class connects the Mario state and all of the inventories include. Which’s a little bit vague here honestly, but if we only focus on the coupling, we cannot deny that this class is super important and it does a good job for connection.
+
+4, the equipItem method used here is super clever. I didn’t consider about this deep when I was thinking about inventories pattern. What this actually did is “light up” the inventory icon which is currently been used. Then all of the corresponding actions could be bound on one key. What I mean here is we can bound “shoot arrows, place bombs, shoot hook shot” all on one key, but not assign a key on each of the function. Therefore, this class not only just records the number of inventories collected/used but also points out the current function of Link. 
+
+5, lastly, the switchToItem here could easily bind different keys or commands on that, which is quite similar as a changeState function.
+
+
+The codes are a little bit vague and not that make sense for me in the following aspects:
+
+1, Not really sure why this class should inherit IMarioState. Like why? How inventories have connection between Mario(Link). You previously have coins, mushrooms those similar stuff as ItemState, which much more make sense. It actually almost the same in structure for MarioPowerupState which change Mario to big, and fire Mario. I mean if you say that we pick up an arrow then link changes to “ArrowState”, why MushRoom and StarMan those kinds of stuff are in ItemState. It’s literally inconsistencies in my point of view.
+
+2, not sure why using a HashSet here. I also saw that it use Add method, so what’s the difference between it and a simple List. It’s quite fancy tho, I never use this as a set an arrays used before to store items. But as far as I know, all of the rest are Lists or queues(used for pool system). It’s just a kinda weird for me then. 
+
+3, we have sprite factory used for creating different sprites, why there’re still lines like new ITile(…, …, …). We can do that by sprite factory. What I know so far is we can substitute it with factory.getfactory().create….(pos)
+
+4, why we’re having velocities for each icon. To maintain camera coordination, we could add them into camera parallax layers. 
+
+Overall: the codes are really understandable and all of the cohesions and couplings are great as a pivot class. There’re just a few places that I think probably could be improved in some ways. Anyway, the quality as a whole is good and “light up” inventories use here is super clever.
